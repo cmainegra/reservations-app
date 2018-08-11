@@ -1,0 +1,8 @@
+#headerDiv {
+    text-align: center;
+}
+.jumbotron {
+    background-image: url("./travel.png");
+    background-size: 100% 220%;
+    background-position-y:   15%;
+}

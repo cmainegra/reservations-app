@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Make a Reservation</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href=mystyle.css>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1>Make A Reservation</h1>
+
+            <hr>
+
+        </div>
+
+        <form>
+            <div class="form-group">
+                <label for="exampleInputName1">Name:</label>
+                <input type="name" class="form-control" id="exampleInputname" aria-describedby="nameHelp" placeholder="">
+                <small id="nameHelp" class="form-text text-muted"></small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPhoneNumber1">Phone Number:</label>
+                <input type="phpnenumbere" class="form-control" id="exampleInputPhoneNumber1" aria-describedby="phonenumberHelp" placeholder="">
+                <small id="phonenumberHelp" class="form-text text-muted"></small>
+            </div>
+            <div class="form-email">
+                <label for="exampleInputEmail1">Email:</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+                <small id="emailHelp" class="form-text text-muted"></small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputLeaveDate1">Leave Date:</label>
+                <input type="leavedate" class="form-control" id="exampleInputleavedate1" aria-describedby="leavedateHelp" placeholder="">
+                <small id="leavedateHelp" class="form-text text-muted"></small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputReturnDate1">Return Date:</label>
+                <input type="returndate" class="form-control" id="exampleInputreturndate1" aria-describedby="returndateHelp" placeholder="">
+                <small id="returndateHelp" class="form-text text-muted"></small>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
+    </div>
+    </div>
+    </form>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <script type="text/javascript">
+
+        $("#search-btn").on("click", function () {
+            var submitReservation = $("#reservation-search").val().trim();
+
+            // Using a RegEx Pattern to remove spaces from searchedCharacter
+            // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+            searchedReservation = searchedReservation.replace(/\s+/g, "").toLowerCase();
+
+            $.get("/api/characters/" + searchedReservation, function (data) {
+                console.log(data);
+                if (data) {
+                    $("#stats").show();
+                    $("#name").text(data.name);
+                    $("#email").text(data.email);
+                    $("#number").text(data.number);
+                    $("#force-points").text(data.forcePoints);
+                }
+                else {
+                    $("#name").text("");
+                    $("#stats").hide();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
