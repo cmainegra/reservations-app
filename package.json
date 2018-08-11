@@ -1,0 +1,26 @@
+{
+  "name": "reservations-app",
+  "version": "1.0.0",
+  "description": "reservations",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmainegra/reservations-app.git"
+  },
+  "author": "charles",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cmainegra/reservations-app/issues"
+  },
+  "homepage": "https://github.com/cmainegra/reservations-app#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mysql": "^2.16.0",
+    "path": "^0.12.7"
+  }
+}
